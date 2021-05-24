@@ -32,23 +32,19 @@ class DemoApplicationTests {
         "Kakashkaliandiia", "Kirizan", "Kizshura", "Manesenci", "DARTSKRIMER", "DrayLOVE");
 
     @Test
-    void generateMessage() {
+    void generateData() {
+        generateUsers();
         Random r = new Random();
         long count = messageRepository.count();
-        int n = 1;
-        for (long i = count; i <= 1000000; i++) {
+        for (long i = count; i <= 10000; i++) {
             messageRepository.save(Message.builder()
                 .messageDate(getRandomDate(r))
-                .name(NAMES.get(n++))
+                .userId(r.nextInt(21) + 1)
                 .text(UUID.randomUUID().toString())
                 .build());
-            if (n == 21) {
-                n = 1;
-            }
         }
     }
 
-    @Test
     void generateUsers() {
         Random r = new Random();
         for (String name : NAMES) {

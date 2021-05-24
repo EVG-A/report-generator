@@ -6,12 +6,12 @@ create function message_ref(
 begin
     open ret_cursor for
         select m.id,
-               m.name,
+               u.name,
                u.rating,
                m.message_date,
                m.text
         from message m
-                 left join users u on m.name = u.name
+                 left join users u on m.user_id = u.id
         where m.message_date between date_from and date_to;
     return ret_cursor;
 end message_ref;

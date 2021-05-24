@@ -46,7 +46,7 @@ public class Message implements Serializable {
     private long id;
 
     @Column
-    private String name;
+    private long userId;
 
     @Column(name = "MESSAGE_DATE")
     private Instant messageDate;
