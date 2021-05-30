@@ -103,9 +103,8 @@ public class Generator {
             ScrollableResults results = query.scroll(ScrollMode.FORWARD_ONLY);
             int index = 0;
             while (results.next()) {
-                MessageData messageData = (MessageData) results.get(0);
                 index++;
-                writer.createRow(index, messageData);
+                writer.createRow(index, (MessageData) results.get(0));
                 if (index % 100000 == 0) {
                     log.info("progress {} rows", index);
                 }

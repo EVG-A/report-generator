@@ -11,7 +11,6 @@
 package com.report.generator.demo.service;
 
 import com.report.generator.demo.repository.entity.MessageData;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xssf.streaming.SXSSFCell;
 import org.apache.poi.xssf.streaming.SXSSFRow;
 import org.apache.poi.xssf.streaming.SXSSFSheet;
@@ -21,11 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Instant;
 
-/**
- * @author Afanasev E.V.
- * @version 1.0 5/21/2021
- */
-@Slf4j
 public class ReportExcelStreamWriter {
 
     private final SXSSFWorkbook wb;

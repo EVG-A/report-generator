@@ -13,22 +13,18 @@ package com.report.generator.demo.config;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.task.TaskExecutor;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
-import java.util.concurrent.Executor;
-
-/**
- * @author Afanasev E.V.
- * @version 1.0 5/7/2021
- */
 @Configuration
 @EnableScheduling
 @EnableAsync
+@EnableJpaRepositories(basePackages = "com.report.generator.demo.repository")
+@PropertySource({"classpath:application.properties"})
 @ConditionalOnProperty(
     value = "app.scheduling.enable", havingValue = "true", matchIfMissing = true
 )
@@ -42,5 +38,4 @@ public class DemoConfig {
         scheduler.initialize();
         return scheduler;
     }
-
 }

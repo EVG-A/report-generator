@@ -25,7 +25,6 @@ import java.time.Instant;
  * @author Afanasev E.V.
  * @version 1.0 5/21/2021
  */
-@Slf4j
 public class ReportExcelWriter {
 
     private final XSSFWorkbook wb;
